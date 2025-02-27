@@ -40,8 +40,8 @@
 
 
         <ul class="hidden md:flex space-x-6 mr-4">
-            <li><a href="#" class="hover:text-orange-300">Login</a></li>
-            <li><a href="#" class="hover:text-orange-300">Sign Up</a></li>
+            <li><a href="/other/login.html" class="hover:text-orange-300">Login</a></li>
+            <li><a href="/other/register" class="hover:text-orange-300">Sign Up</a></li>
         </ul>
     </nav>
 
@@ -51,18 +51,11 @@
         <a href="other/Product.html" class="hover:text-orange-300">สินค้า</a>
         <a href="#" class="hover:text-orange-300">โปรโมชั่น</a>
         <a href="/other/About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a>
-        <a href="#" class="hover:text-orange-300">Login</a>
-        <a href="#" class="hover:text-orange-300">Sign Up</a>
+        <a href="/other/login.html" class="hover:text-orange-300">Login</a>
+        <a href="/other/register" class="hover:text-orange-300">Sign Up</a>
     </div>
 
-    <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
 
-        menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
     
     <h1 class="text-4xl font-bold text-center m-6 ">เมนูเครื่องดื่ม</h1>
 
@@ -90,6 +83,7 @@
             <h3 class="text-xl font-semibold mt-2">น้ำสตรอเบอร์รี่ปั่น</h3>
             <p class="text-gray-600">สดชื่น อร่อย</p>
             <p class="text-lg font-bold mt-2">35฿</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <div class="product-card rounded-lg p-4 text-center bg-white shadow-lg" data-category="ปั่น">
@@ -97,6 +91,7 @@
             <h3 class="text-xl font-semibold mt-2">น้ำสตรอเบอร์รี่ปั่น</h3>
             <p class="text-gray-600">สดชื่น อร่อย</p>
             <p class="text-lg font-bold mt-2">35฿</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <div class="product-card rounded-lg p-4 text-center bg-white shadow-lg" data-category="ปั่น">
@@ -104,6 +99,7 @@
             <h3 class="text-xl font-semibold mt-2">น้ำสตรอเบอร์รี่ปั่น</h3>
             <p class="text-gray-600">สดชื่น อร่อย</p>
             <p class="text-lg font-bold mt-2">35฿</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <div class="product-card rounded-lg p-4 text-center bg-white shadow-lg" data-category="ปั่น">
@@ -111,6 +107,7 @@
             <h3 class="text-xl font-semibold mt-2">น้ำสตรอเบอร์รี่ปั่น</h3>
             <p class="text-gray-600">สดชื่น อร่อย</p>
             <p class="text-lg font-bold mt-2">35฿</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <!-- สมูทตี้ -->
@@ -119,18 +116,22 @@
             <h3 class="text-xl font-semibold mt-2">สมูทตี้องุ่น</h3>
             <p class="text-gray-600">เปรี้ยวหวานลงตัว</p>
             <p class="text-lg font-bold mt-2">35฿</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
+
         </div>
         <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="สมูทตี้">
             <img src="https://thailandjuicer.com/wp-content/uploads/berry-mints-smoothie.jpg" class="w-full rounded-md">
             <h3 class="text-xl font-semibold mt-2">สมูทตี้องุ่น</h3>
             <p class="text-gray-600">เปรี้ยวหวานลงตัว</p>
             <p class="text-lg font-bold mt-2">35฿</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
         <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="สมูทตี้">
             <img src="https://thailandjuicer.com/wp-content/uploads/berry-mints-smoothie.jpg" class="w-full rounded-md">
             <h3 class="text-xl font-semibold mt-2">สมูทตี้องุ่น</h3>
             <p class="text-gray-600">เปรี้ยวหวานลงตัว</p>
             <p class="text-lg font-bold mt-2">35฿</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="สมูทตี้">
@@ -138,6 +139,7 @@
             <h3 class="text-xl font-semibold mt-2">สมูทตี้องุ่น</h3>
             <p class="text-gray-600">เปรี้ยวหวานลงตัว</p>
             <p class="text-lg font-bold mt-2">35฿</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <!-- น้ำผลไม้ -->
@@ -146,6 +148,7 @@
             <h3 class="text-xl font-semibold mt-2">น้ำส้มคั้น</h3>
             <p class="text-gray-600">สดชื่น มีวิตามินซีสูง</p>
             <p class="text-lg font-bold mt-2">$5.99</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="น้ำผลไม้">
@@ -153,6 +156,7 @@
             <h3 class="text-xl font-semibold mt-2">น้ำแอปเปิ้ล</h3>
             <p class="text-gray-600">หวานธรรมชาติ</p>
             <p class="text-lg font-bold mt-2">$6.99</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="น้ำผลไม้">
@@ -160,6 +164,7 @@
             <h3 class="text-xl font-semibold mt-2">น้ำส้มคั้น</h3>
             <p class="text-gray-600">สดชื่น มีวิตามินซีสูง</p>
             <p class="text-lg font-bold mt-2">$5.99</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
         <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="น้ำผลไม้">
@@ -167,6 +172,7 @@
             <h3 class="text-xl font-semibold mt-2">น้ำแอปเปิ้ล</h3>
             <p class="text-gray-600">หวานธรรมชาติ</p>
             <p class="text-lg font-bold mt-2">$6.99</p>
+            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
         </div>
 
     </div>
@@ -210,12 +216,19 @@
 
 </style>
 
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
 
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
 
 
 
 <footer class="text-center py-6 bg-orange-500 text-white mt-10">
-    <p>&copy; Bon Juice - All Rights Reserved</p>
+    <p> Bon Juice - Delivering happiness to you</p>
 </footer>
 
 </body>

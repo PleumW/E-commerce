@@ -33,36 +33,29 @@
   
         <ul class="hidden md:flex space-x-6 lg:space-x-10">
             <li><a href="/index.html" class="hover:text-orange-300">หน้าแรก</a></li>
-            <li><a href="other/Product.html" class="hover:text-orange-300">สินค้า</a></li>
+            <li><a href="Product.html" class="hover:text-orange-300">สินค้า</a></li>
             <li><a href="#" class="hover:text-orange-300">โปรโมชั่น</a></li>
-            <li><a href="/other/About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a></li>
+            <li><a href="About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a></li>
         </ul>
 
     
         <ul class="hidden md:flex space-x-6 mr-4">
-            <li><a href="#" class="hover:text-orange-300">Login</a></li>
-            <li><a href="#" class="hover:text-orange-300">Sign Up</a></li>
+            <li><a href="login.html" class="hover:text-orange-300">Login</a></li>
+            <li><a href="register" class="hover:text-orange-300">Sign Up</a></li>
         </ul>
     </nav>
 
 
     <div id="mobileMenu" class="hidden flex flex-col bg-orange-500 text-white p-4 space-y-4 md:hidden">
         <a href="/index.html" class="hover:text-orange-300">หน้าแรก</a>
-        <a href="other/Product.html" class="hover:text-orange-300">สินค้า</a>
+        <a href="Product.html" class="hover:text-orange-300">สินค้า</a>
         <a href="#" class="hover:text-orange-300">โปรโมชั่น</a>
-        <a href="/other/About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a>
-        <a href="#" class="hover:text-orange-300">Login</a>
-        <a href="#" class="hover:text-orange-300">Sign Up</a>
+        <a href="About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a>
+        <a href="login.html" class="hover:text-orange-300">Login</a>
+        <a href="register" class="hover:text-orange-300">Sign Up</a>
     </div>
 
-    <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
-
-        menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
+    
 
     <header class="text-center bg-orange-100 ">
         <div class="relative w-full h-screen">
@@ -115,7 +108,7 @@
                     <textarea class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="พิมพ์ข้อความของคุณที่นี่"></textarea>
                 </div>
     
-                <button type="submit" class="w-full p-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition">
+                <button type="submit" class="w-full p-2 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">
                     ส่งข้อความ
                 </button>
             </form>
@@ -123,11 +116,19 @@
     
     </div>
     
+<script>
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
 
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
 
 
     <footer class="text-center py-6 bg-orange-500 text-white mt-10">
-        <p>&copy; Bon Juice - All Rights Reserved</p>
+        <p> Bon Juice - Delivering happiness to you
+        </p>
     </footer>
 
 </body>
