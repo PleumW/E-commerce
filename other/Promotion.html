@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Fruit Juice Shop</title>
+    <title>โปรโมชั่นน้ำผลไม้</title>
 </head>
-<body class="bg-orange-100 text-gray-800">
-    
+<body class="bg-orange-50 flex flex-col min-h-screen">
 
-    
     <nav class="bg-orange-400 p-1 text-white flex justify-between items-center sticky top-0 z-20">
-
+   
         <div class="flex items-center gap-2 ml-4">
             <button id="menuToggle" class="block md:hidden">
                 <svg class="w-8 h-8" fill="white" viewBox="0 0 20 20">
@@ -30,7 +28,7 @@
             <h1 class="text-xl font-bold">Bon Juice</h1>
         </div>
 
-  
+
         <ul class="hidden md:flex space-x-6 lg:space-x-10">
             <li><a href="/index.html" class="hover:text-orange-300">หน้าแรก</a></li>
             <li><a href="Product.html" class="hover:text-orange-300">สินค้า</a></li>
@@ -38,7 +36,7 @@
             <li><a href="About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a></li>
         </ul>
 
-    
+      
         <ul class="hidden md:flex space-x-6 mr-4">
             <li><a href="login.html" class="hover:text-orange-300">Login</a></li>
             <li><a href="register.html" class="hover:text-orange-300">Sign Up</a></li>
@@ -51,72 +49,89 @@
         <a href="Product.html" class="hover:text-orange-300">สินค้า</a>
         <a href="Promotion.html" class="hover:text-orange-300">โปรโมชั่น</a>
         <a href="About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a>
-        <a href="login.html" class="hover:text-orange-300">Login</a>
-        <a href="register.html" class="hover:text-orange-300">Sign Up</a>
+        <a href=".login.html" class="hover:text-orange-300">Login</a>
+        <a href=".register.html" class="hover:text-orange-300">Sign Up</a>
     </div>
 
+
+<div class="mb-2 py-7 flex items-center justify-center">
+    <label for="monthSelect" class="text-lg font-semibold text-orange-600 ">โปรโมชั่นประจำเดือน :</label>
+    <select id="monthSelect" class="ml-2 p-2 border rounded-lg shadow-md">
+        <option value="january">มกราคม</option>
+        <option value="february">กุมภาพันธ์</option>
+        <option value="march">มีนาคม</option>
+    </select>
+</div>
+
+
+<div id="gallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 max-w-6xl mx-auto">
     
+</div>
 
-    <header class="text-center bg-orange-100 ">
-        <div class="relative w-full h-screen">
-          <img src="https://images.pexels.com/photos/5453899/pexels-photo-5453899.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-5453899.jpg&fm=jpg"
-            class="w-full h-full object-cover" />
-          <div class="absolute inset-0 flex flex-col justify-center items-center">
-            <p class="text-white text-9xl font-bold">ติดต่อเรา</p>
-            <p class="text-white text-3xl mt-4">หากพบปัญหาเราจะช่วยแก้ไข</p>
-          </div>
-        </div>
-      </header>
-
-    <div>
-        <div>
-            <h1 class="text-3xl text-center mt-4 text-orange-800">ติดต่อเรา</h1>
-        </div>
+    
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center">
+        <img id="modalImage" class="max-w-full max-h-[90vh] rounded-lg shadow-lg">
+        <button class="absolute top-4 right-4 text-white text-3xl font-bold" onclick="closeModal()">&times;</button>
     </div>
 
-    <div class="flex flex-col md:flex-row justify-center items-start space-y-6 md:space-y-0 md:space-x-12 p-6">
+    <script>
+        const promotions = {
+            january: [
+                "https://marketplace.canva.com/EAGRbEg5szQ/1/0/1131w/canva-%E0%B8%AA%E0%B8%B5%E0%B8%A1%E0%B9%88%E0%B8%A7%E0%B8%87-%E0%B8%AA%E0%B8%B5%E0%B9%80%E0%B8%AB%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%87-%E0%B9%82%E0%B8%A1%E0%B9%80%E0%B8%94%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%99-%E0%B8%99%E0%B9%88%E0%B8%B2%E0%B8%A3%E0%B8%B1%E0%B8%81-%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99-%E0%B8%AA%E0%B9%88%E0%B8%A7%E0%B8%99%E0%B8%A5%E0%B8%94%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%94%E0%B8%B7%E0%B9%88%E0%B8%A1-%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AE%E0%B8%B2%E0%B9%82%E0%B8%A5%E0%B8%A7%E0%B8%B5%E0%B8%99-%E0%B9%82%E0%B8%9B%E0%B8%AA%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C-BZyXPvSyvQQ.jpg",
+                "https://i.pinimg.com/originals/a2/72/4e/a2724e400bafa3dd5465aec45f625c62.jpg",
+                "https://marketplace.canva.com/EAGUaM7dRU8/2/0/283w/canva-%E0%B8%AA%E0%B8%B5%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%95%E0%B8%B2%E0%B8%A5%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%A1-%E0%B8%AA%E0%B8%B5%E0%B8%AA%E0%B9%89%E0%B8%A1-%E0%B8%AA%E0%B8%B5%E0%B8%82%E0%B8%B2%E0%B8%A7-%E0%B8%AA%E0%B8%B5%E0%B8%94%E0%B8%B3-%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%9A%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2-%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%A7%E0%B8%B1%E0%B8%99-%E0%B9%80%E0%B8%A1%E0%B8%99%E0%B8%B9-OSR6uIPzNEM.jpg",
+                "https://img.lovepik.com/desgin_photo/40034/7491_detail.jpg!detail808",
+                "https://img.lovepik.com/desgin_photo/40106/5765_detail.jpg!detail808",
+                "https://img.lovepik.com/free_template/28/63/32/99d58PICw757458PICs7411G4_PIC2018.jpg_detail.jpg!detail808",
+            ],
+            february: [
+                "https://img.lovepik.com/desgin_photo/40174/4258_detail.jpg!detail808",
+                "https://img.lovepik.com/desgin_photo/40142/1616_detail.jpg!detail808",
+                "https://img.lovepik.com/free_template/28/80/84/05458PICp2DBNX4AdM4J6_PIC2018.jpg_detail.jpg!detail808",
+                "https://img.lovepik.com/desgin_photo/40026/7768_detail.jpg!detail808",
+                "https://img.lovepik.com/desgin_photo/40136/2292_detail.jpg!detail808",
+                "https://img.lovepik.com/desgin_photo/40158/6493_detail.jpg!detail808",
+                "https://img.lovepik.com/desgin_photo/40245/2656_detail.jpg!detail808",
+            ],
+            march: [
+                "https://img.lovepik.com/desgin_photo/40033/7589_detail.jpg!detail808",
+                "https://img.lovepik.com/free-template/20230331/lovepik-summer-cold-drink-strawberry-fruit-drink-promotion-poster-image_9010594_detail.jpg!detail808",
+                "https://img.lovepik.com/desgin_photo/40171/0169_detail.jpg!detail808",
+                "https://marketplace.canva.com/EAGI9s90Klc/4/0/1131w/canva-%EB%B9%A8%EA%B0%95-%EC%B4%88%EB%A1%9D-%EA%B9%94%EB%81%94%ED%95%9C-%EC%88%98%EB%B0%95-%EC%A5%AC%EC%8A%A4-%ED%99%8D%EB%B3%B4-%ED%8F%AC%EC%8A%A4%ED%84%B0-Hg3Ho2L7gYA.jpg",
+                "https://mblogthumb-phinf.pstatic.net/MjAxNzAyMDJfMjcz/MDAxNDg2MDA0MzkxODM5.3GzRXty_XQTz1sTBJ4_2sTvIXnFv-gBjYJOHdjAhP8Qg.aFEtXSHra0lvIYOs1M0ym5EMVVFWVeBIuZoWSLEPb8kg.JPEG.jheegal2/image_8937286151486004368662.jpg?type=w800"
+            ]
+        };
 
-        <!-- ส่วนข้อมูลบริษัท -->
-        <div class="flex flex-col max-w-xl text-left text-orange-800">
-            <h1 class="mb-4 font-bold text-2xl">บริษัท Bon Juice จำกัดมหาชน</h1>
-            <p class="font-bold">ที่ตั้งของสำนักงาน</p>
-            <p class="mb-4">23/45 ซอยส้มปั่น ถนนสมูทตี้ ตำบลน้ำผลไม้ อำเภอปั่นสด จังหวัดเฟรชแลนด์ 57000</p>
-            
-            <p class="font-bold">เบอร์โทรศัพท์</p>
-            <p class="mb-4">08X-XXX-XXXX</p>
-            
-            <p class="font-bold">Email</p>
-            <p class="mb-4">bonjuice@freshmail.com</p>
-        </div>
-    
-        <!-- ฟอร์มติดต่อ -->
-        <div class="max-w-md p-6 border border-orange-200 shadow-lg rounded-lg bg-orange-200 text-orange-800 justify-center">
-            <p class="mb-4">คำถามและความคิดเห็นของคุณมีความสำคัญต่อเรา โปรดใช้แบบฟอร์มด้านล่างเพื่อติดต่อเรา แล้วเราจะติดต่อกลับโดยเร็วที่สุด</p>
-            <form class="space-y-4">
-                <div>
-                    <label class="block font-semibold">ชื่อ</label>
-                    <input type="text" class="w-full p-2 border border-gray-300 rounded" placeholder="กรอกชื่อของคุณ">
-                </div>
-    
-                <div>
-                    <label class="block font-semibold">อีเมล</label>
-                    <input type="email" class="w-full p-2 border border-gray-300 rounded" placeholder="example@email.com">
-                </div>
-    
-                <div>
-                    <label class="block font-semibold">ข้อความ</label>
-                    <textarea class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="พิมพ์ข้อความของคุณที่นี่"></textarea>
-                </div>
-    
-                <button type="submit" class="w-full p-2 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">
-                    ส่งข้อความ
-                </button>
-            </form>
-        </div>
-    
-    </div>
-    
-<script>
+        function loadGallery(month) {
+            const gallery = document.getElementById("gallery");
+            gallery.innerHTML = "";
+            promotions[month].forEach(src => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.className = "rounded-lg shadow-md cursor-pointer hover:scale-105 transition";
+                img.onclick = () => openModal(img);
+                gallery.appendChild(img);
+            });
+        }
+
+        function openModal(img) {
+            document.getElementById("modalImage").src = img.src;
+            document.getElementById("modal").classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("modal").classList.add("hidden");
+        }
+
+        document.getElementById("monthSelect").addEventListener("change", (event) => {
+            loadGallery(event.target.value);
+        });
+
+        // โหลดรูปของเดือนเริ่มต้น
+        loadGallery("january");
+    </script>
+
+    <script>
         const menuToggle = document.getElementById("menuToggle");
         const mobileMenu = document.getElementById("mobileMenu");
 
@@ -125,11 +140,10 @@
         });
     </script>
 
-
-    <footer class="text-center py-6 bg-orange-500 text-white mt-10">
-        <p> Bon Juice - Delivering happiness to you
-        </p>
-    </footer>
+<footer class="text-center py-6 bg-orange-500 text-white mt-10">
+    <p> Bon Juice - Delivering happiness to you
+    </p>
+</footer>
 
 </body>
 </html>
