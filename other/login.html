@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Login</title>
 </head>
-<body class="flex items-center justify-center min-h-screen object-cover "style="background-image: url(https://c.pxhere.com/images/15/a8/7b6691a51cbd1558e1790d4db150-1421259.jpg!d);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;">
+<body class="flex items-center justify-center min-h-screen object-cover" style="
+    background-image: url(https://c.pxhere.com/images/15/a8/7b6691a51cbd1558e1790d4db150-1421259.jpg!d);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+">
     <div class="bg-orange-300 p-8 rounded-lg shadow-lg w-96 bg-black bg-opacity-80">
         <div class="flex items-center justify-center text-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-20">
@@ -17,29 +20,28 @@ background-repeat: no-repeat;">
             </svg>
         </div>
         
-        <h2 class="text-2xl font-bold text-center text-black-700">Login</h2>
-        <form id="loginForm" class="mt-4">
+        <h2 class="text-2xl font-bold text-center text-white">Login</h2>
+        <form id="loginForm" action="" method="POST" class="mt-4">
             <div class="mb-4">
-                <label class="block text-gray-700 font-medium">Username</label>
-                <input type="text" id="username" class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
-                <p id="usernameError" class="text-red-500 text-sm mt-1 hidden">Username must be 8 characters or moer!</p>
+                <label class="block text-gray-300 font-medium">Username</label>
+                <input type="text" name="username" id="username" class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                <p id="usernameError" class="text-red-500 text-sm mt-1 hidden">Username is required!</p>
             </div>
             <div class="mb-4">
-                <label class="block text-gray-700 font-medium">Password</label>
-                <input type="password" id="password" class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
-                <p id="passwordError" class="text-red-500 text-sm mt-1 hidden">Please input your password!<p>
+                <label class="block text-gray-300 font-medium">Password</label>
+                <input type="password" name="password" id="password" class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                <p id="passwordError" class="text-red-500 text-sm mt-1 hidden">Password is required!</p>
             </div>
 
-            <div>
-            <button type="submit" class="w-20 bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600">Login</button>
-            <button type="reset" class="w-20 bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600">reset</button>
+            <div class="flex justify-between">
+                <button type="submit" class="w-20 bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600">Login</button>
+                <button type="reset" class="w-20 bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600">Reset</button>
             </div>
         </form>
     </div>
 
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
             let isValid = true;
             
             const username = document.getElementById("username");
@@ -59,7 +61,14 @@ background-repeat: no-repeat;">
             } else {
                 passwordError.classList.add("hidden");
             }
+
+            // ถ้าไม่มีข้อผิดพลาด ฟอร์มจะถูกส่ง
+            if (!isValid) {
+                event.preventDefault();
+            }
         });
     </script>
+
+    
 </body>
 </html>
