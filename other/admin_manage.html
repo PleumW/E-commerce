@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เมนูเครื่องดื่ม</title>
+    <title>จัดการสินค้า</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-orange-100 text-gray-800">
+<body class="bg-orange-100 font-sans">
 
+    <nav class="bg-orange-400 p-1 text-white flex justify-between items-center z-20 rounded-full px-4 w-[90%] md:w-[90%] lg:w-[90%] mt-4 mx-auto shadow-xl">
 
-    
-    <nav class="bg-orange-400 p-1 text-white flex justify-between items-center sticky top-0 z-20">
-      
+   
         <div class="flex items-center gap-2 ml-4">
             <button id="menuToggle" class="block md:hidden">
                 <svg class="w-8 h-8" fill="white" viewBox="0 0 20 20">
@@ -30,15 +29,13 @@
             <h1 class="text-xl font-bold">Bon Juice</h1>
         </div>
 
- 
+
         <ul class="hidden md:flex space-x-6 lg:space-x-10">
-            <li><a href="index.html" class="hover:text-orange-300">หน้าแรก</a></li>
-            <li><a href="Product.html" class="hover:text-orange-300">สินค้า</a></li>
-            <li><a href="Promotion.html" class="hover:text-orange-300">โปรโมชั่น</a></li>
-            <li><a href="About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a></li>
+            <li><a href="Produ.html" class="hover:text-orange-300">สินค้า</a></li>
+            <li><a href="admin_manage.html" class="hover:text-orange-300">จัดการสินค้า</a></li>
         </ul>
 
-
+      
         <ul class="hidden md:flex space-x-6 mr-4">
             <li><a href="login.html" class="hover:text-orange-300">Login</a></li>
             <li><a href="register.html" class="hover:text-orange-300">Sign Up</a></li>
@@ -46,190 +43,95 @@
     </nav>
 
 
-    <div id="mobileMenu" class="hidden flex flex-col bg-orange-500 text-white p-4 space-y-4 md:hidden">
-        <a href="index.html" class="hover:text-orange-300">หน้าแรก</a>
-        <a href="other/Product.html" class="hover:text-orange-300">สินค้า</a>
-        <a href="Promotion.html" class="hover:text-orange-300">โปรโมชั่น</a>
-        <a href="other/About Me.html" class="hover:text-orange-300">เกี่ยวกับเรา</a>
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-orange-500 bg-opacity-80 text-white p-4 space-y-4 z-50 flex flex-col">
+        <div class="flex justify-end">
+            <button id="closeMenu" class="text-white text-2xl">&times;</button>
+        </div>
+        <a href="Produ.html" class="hover:text-orange-300">สินค้า</a>
+        <a href="admin_manage.html" class="hover:text-orange-300">จัดการสินค้า</a>
         <a href="login.html" class="hover:text-orange-300">Login</a>
         <a href="register.html" class="hover:text-orange-300">Sign Up</a>
     </div>
-
-
     
-    <h1 class="text-4xl font-bold text-center m-6 text-orange-500 ">เมนูเครื่องดื่ม</h1>
-
-
-    <div class="flex justify-center space-x-3 mb-6 flex-wrap">
-        <button class="category-btn px-5 py-2 bg-gray-300 text-gray-700 rounded-full hover:bg-gray-400 transition font-semibold" data-category="all">
-            🥤 แสดงทั้งหมด
-        </button>
-        <button class="category-btn px-5 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition font-semibold" data-category="ปั่น">
-            🍹 น้ำปั่น
-        </button>
-        <button class="category-btn px-5 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition font-semibold" data-category="สมูทตี้">
-            🥑 สมูทตี้
-        </button>
-        <button class="category-btn px-5 py-2 bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition font-semibold" data-category="น้ำผลไม้">
-            🍊 น้ำผลไม้
-        </button>
-    </div>
     
-    <div id="product-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-2 text-center items-center">
-        
-        <!-- น้ำปั่น -->
-        <div class="product-card rounded-lg p-4 text-center bg-white shadow-lg" data-category="ปั่น">
-            <img src="https://s359.kapook.com/pagebuilder/7f2adf98-9b23-46db-814c-ff23d31554e5.jpg" class="w-full object-cover rounded-md justify-center">
-            <h3 class="text-xl font-semibold mt-2">น้ำสตรอเบอร์รี่ปั่น</h3>
-            <p class="text-gray-600">สดชื่น อร่อย</p>
-            <p class="text-lg font-bold mt-2">35฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <div class="product-card rounded-lg p-4 text-center bg-white shadow-lg" data-category="ปั่น">
-            <img src="https://s359.kapook.com/pagebuilder/7f2adf98-9b23-46db-814c-ff23d31554e5.jpg" class="w-full object-cover rounded-md justify-center">
-            <h3 class="text-xl font-semibold mt-2">น้ำสตรอเบอร์รี่ปั่น</h3>
-            <p class="text-gray-600">สดชื่น อร่อย</p>
-            <p class="text-lg font-bold mt-2">35฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <div class="product-card rounded-lg p-4 text-center bg-white shadow-lg" data-category="ปั่น">
-            <img src="https://s359.kapook.com/pagebuilder/7f2adf98-9b23-46db-814c-ff23d31554e5.jpg" class="w-full object-cover rounded-md justify-center">
-            <h3 class="text-xl font-semibold mt-2">น้ำสตรอเบอร์รี่ปั่น</h3>
-            <p class="text-gray-600">สดชื่น อร่อย</p>
-            <p class="text-lg font-bold mt-2">35฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <div class="product-card rounded-lg p-4 text-center bg-white shadow-lg" data-category="ปั่น">
-            <img src="https://s359.kapook.com/pagebuilder/7f2adf98-9b23-46db-814c-ff23d31554e5.jpg" class="w-full object-cover rounded-md justify-center">
-            <h3 class="text-xl font-semibold mt-2">น้ำสตรอเบอร์รี่ปั่น</h3>
-            <p class="text-gray-600">สดชื่น อร่อย</p>
-            <p class="text-lg font-bold mt-2">35฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <!-- สมูทตี้ -->
-        <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="สมูทตี้">
-            <img src="https://thailandjuicer.com/wp-content/uploads/berry-mints-smoothie.jpg" class="w-full rounded-md">
-            <h3 class="text-xl font-semibold mt-2">สมูทตี้องุ่น</h3>
-            <p class="text-gray-600">เปรี้ยวหวานลงตัว</p>
-            <p class="text-lg font-bold mt-2">35฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-
-        </div>
-        <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="สมูทตี้">
-            <img src="https://thailandjuicer.com/wp-content/uploads/berry-mints-smoothie.jpg" class="w-full rounded-md">
-            <h3 class="text-xl font-semibold mt-2">สมูทตี้องุ่น</h3>
-            <p class="text-gray-600">เปรี้ยวหวานลงตัว</p>
-            <p class="text-lg font-bold mt-2">35฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-        <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="สมูทตี้">
-            <img src="https://thailandjuicer.com/wp-content/uploads/berry-mints-smoothie.jpg" class="w-full rounded-md">
-            <h3 class="text-xl font-semibold mt-2">สมูทตี้องุ่น</h3>
-            <p class="text-gray-600">เปรี้ยวหวานลงตัว</p>
-            <p class="text-lg font-bold mt-2">35฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="สมูทตี้">
-            <img src="https://thailandjuicer.com/wp-content/uploads/berry-mints-smoothie.jpg" class="w-full rounded-md">
-            <h3 class="text-xl font-semibold mt-2">สมูทตี้องุ่น</h3>
-            <p class="text-gray-600">เปรี้ยวหวานลงตัว</p>
-            <p class="text-lg font-bold mt-2">35฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <!-- น้ำผลไม้ -->
-        <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="น้ำผลไม้">
-            <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1700043253/attached_image_th/orangejuiceontableclose-up.jpg" class="w-full rounded-md">
-            <h3 class="text-xl font-semibold mt-2">น้ำส้มคั้น</h3>
-            <p class="text-gray-600">สดชื่น มีวิตามินซีสูง</p>
-            <p class="text-lg font-bold mt-2">25฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="น้ำผลไม้">
-            <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1700043253/attached_image_th/orangejuiceontableclose-up.jpg" class="w-full rounded-md">
-            <h3 class="text-xl font-semibold mt-2">น้ำแอปเปิ้ล</h3>
-            <p class="text-gray-600">หวานธรรมชาติ</p>
-            <p class="text-lg font-bold mt-2">25฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="น้ำผลไม้">
-            <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1700043253/attached_image_th/orangejuiceontableclose-up.jpg" class="w-full rounded-md">
-            <h3 class="text-xl font-semibold mt-2">น้ำส้มคั้น</h3>
-            <p class="text-gray-600">สดชื่น มีวิตามินซีสูง</p>
-            <p class="text-lg font-bold mt-2">25฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-        <div class="product-card bg-white shadow-lg rounded-lg p-4" data-category="น้ำผลไม้">
-            <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1700043253/attached_image_th/orangejuiceontableclose-up.jpg" class="w-full rounded-md">
-            <h3 class="text-xl font-semibold mt-2">น้ำแอปเปิ้ล</h3>
-            <p class="text-gray-600">หวานธรรมชาติ</p>
-            <p class="text-lg font-bold mt-2">25฿</p>
-            <button class="bg-orange-400 rounded-lg text-sm px-2 py-1 mt-2 hover:bg-orange-600">🛒 สั่งซื้อ </button>
-        </div>
-
-    </div>
 
     <script>
-    document.querySelectorAll(".category-btn").forEach(button => {
-        button.addEventListener("click", () => {
-            const category = button.getAttribute("data-category");
-            document.querySelectorAll(".product-card").forEach(card => {
-                if (category === "all") {
-                    card.style.display = "block"; 
-                } else if (card.getAttribute("data-category") === category) {
-                    card.style.display = "block"; 
-                } else {
-                    card.style.display = "none"; 
-                }
-            });
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+    
 
-            
-            document.querySelectorAll(".category-btn").forEach(btn => btn.classList.remove("active"));
-            button.classList.add("active");
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); 
         });
-    });
+    
 
-
-</script>
-
-<style>
-    .category-btn {
-        transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    }
-
-    .category-btn:active {
-        transform: scale(0.95);
-    }
-
-    .category-btn.bg-opacity-50 {
-        filter: brightness(1.2);
-    }
-
-
-</style>
-
-    <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
-
-        menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden'); 
+        });
+    
+     
+        window.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
         });
     </script>
 
+    <div class="container mx-auto p-5">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-700">จัดการสินค้า</h1>
+        <div class="text-center mb-6">
+            <button onclick="window.location.href='admin_add.html'" 
+                class="px-5 py-2 bg-orange-500 text-white rounded-lg shadow-md hover:bg-orange-600 transition">เพิ่มสินค้า</button>
+        </div>
+        <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    </div>
 
+    <script>
+        async function loadProducts() {
+            const response = await fetch('get_products.php');
+            const products = await response.json();
+            const container = document.getElementById('product-list');
+            container.innerHTML = "";
 
-<footer class="text-center py-6 bg-orange-500 text-white mt-10">
-    <p> Bon Juice - Delivering happiness to you</p>
-</footer>
+            products.forEach(product => {
+                container.innerHTML += `
+                    <div class="bg-orange-200 p-4 rounded-lg shadow-md relative">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-md">
+                        <h3 class="text-lg font-semibold mt-3 text-gray-700">${product.name}</h3>
+                        <p class="text-gray-600 text-sm">${product.description}</p>
+                        <strong class="block text-gray-900 mt-2">${product.price} บาท</strong>
+                        <div class="flex justify-between mt-4">
+                            <button class="px-5 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition" onclick="editProduct(${product.id})">Edit</button>
+                            <button class="px-2 py-2 mr-3 bg-orange-200 text-xl rounded-md hover:bg-orange-200 transition" onclick="deleteProduct(${product.id})">❌</button>
+                        </div>
+                    </div>`;
+            });
+        }
 
+        function editProduct(id) {
+            window.location.href = `admin_edit.html?id=${id}`;
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm("คุณต้องการลบสินค้านี้ใช่หรือไม่?")) return;
+
+            let formData = new FormData();
+            formData.append("id", id);
+
+            const response = await fetch("delete_product.php", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+            alert(result.message);
+            if (result.success) {
+                document.getElementById(`product-${id}`).remove();
+            }
+        }
+
+        loadProducts();
+    </script>
 </body>
 </html>
