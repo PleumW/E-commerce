@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Fruit Juice Shop</title>
+    <title>Bon Juice </title>
 </head>
-<body class="bg-orange-100 text-gray-800 font-">
-    
+<body class="bg-orange-100 text-gray-800 ">
+<?php
+session_start();
+?>
 
     <nav class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-orange-400 p-1 text-white flex justify-between items-center z-20 rounded-full px-4 w-[90%] md:w-[90%] lg:w-[90%] mt-4 shadow-xl">
 
@@ -34,29 +36,61 @@
 
 
         <ul class="hidden md:flex space-x-6 lg:space-x-10">
-            <li><a href="index.html" class="hover:text-orange-300">หน้าแรก</a></li>
-            <li><a href="produ.html" class="hover:text-orange-300">สินค้า</a></li>
-            <li><a href="Promotion.html" class="hover:text-orange-300">โปรโมชั่น</a></li>
-            <li><a href="About Me.html" class="hover:text-orange-300">ติดต่อเรา</a></li>
+            <li><a href="index.php" class="hover:text-orange-300">หน้าแรก</a></li>
+            <li><a href="produ.php" class="hover:text-orange-300">สินค้า</a></li>
+            <li><a href="Promotion.php" class="hover:text-orange-300">โปรโมชั่น</a></li>
+            <li><a href="About Me.php" class="hover:text-orange-300">ติดต่อเรา</a></li>
         </ul>
 
       
-        <ul class="hidden md:flex space-x-6 mr-4">
-            <li><a href="login.html" class="hover:text-orange-300">Login</a></li>
-            <li><a href="register.html" class="hover:text-orange-300">Sign Up</a></li>
-        </ul>
+        <ul class="hidden md:flex space-x-6 mr-4 items-center justify-center gap-4">
+    <?php if (isset($_SESSION['username'])): ?>
+        <li class="flex items-center">
+            <span class="mr-4">ยินดีต้อนรับ : <?= $_SESSION['username']; ?></span>
+
+            
+            <form method="POST" action="logout.php" class="inline">
+
+                <button  class="bg-orange-600 px-4 py-2 rounded-md hover:bg-orange-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+</svg>
+
+</svg>
+</button>
+
+            </form>
+        </li>
+    <?php else: ?>
+        <li><a href="login.php" class="hover:text-orange-300">Login</a></li>
+        <li><a href="register.php" class="hover:text-orange-300">Sign Up</a></li>
+    <?php endif; ?>
+</ul>
+
     </nav>
     
     <div id="mobileMenu" class="hidden fixed inset-0 bg-orange-500 bg-opacity-80 text-white p-4 space-y-4 z-50 flex flex-col">
         <div class="flex justify-end">
             <button id="closeMenu" class="text-white text-2xl">&times;</button>
         </div>
-        <a href="index.html" class="hover:text-orange-300">หน้าแรก</a>
-        <a href="Produ.html" class="hover:text-orange-300">สินค้า</a>
-        <a href="Promotion.html" class="hover:text-orange-300">โปรโมชั่น</a>
-        <a href="About Me.html" class="hover:text-orange-300">ติดต่อเรา</a>
-        <a href="login.html" class="hover:text-orange-300">Login</a>
-        <a href="register.html" class="hover:text-orange-300">Sign Up</a>
+        <a href="index.php" class="hover:text-orange-300">หน้าแรก</a>
+        <a href="produ.php" class="hover:text-orange-300">สินค้า</a>
+        <a href="Promotion.php" class="hover:text-orange-300">โปรโมชั่น</a>
+        <a href="About Me.php" class="hover:text-orange-300">ติดต่อเรา</a>
+        <?php if (isset($_SESSION['username'])): ?>
+            <div class="flex-col  space-x-4">
+            <span class="flex mt-3"> ยินดีต้อนรับ : <?= $_SESSION['username']; ?>!
+</span>
+<form method="POST" action="logout.php" class="mt-3 flex justify-center items-center">
+    <button type="submit" class="bg-red-500 px-10 py-2 rounded-md hover:bg-red-600">Logout</button>
+</form>
+
+</div>
+
+        <?php else: ?>
+            <a href="login.php" class="hover:text-orange-300">Login</a>
+            <a href="register.php" class="hover:text-orange-300">Sign Up</a>
+        <?php endif; ?>
     </div>
     
     
